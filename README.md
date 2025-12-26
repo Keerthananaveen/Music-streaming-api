@@ -41,6 +41,7 @@ music-streaming-api/
 ├── package.json
 ├── package-lock.json
 └── README.md
+```
 
 ## **Features**
 
