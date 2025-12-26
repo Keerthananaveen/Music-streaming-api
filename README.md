@@ -115,20 +115,14 @@ npx prisma generate
 #### Songs
 
 - GET /api/songs – List all songs
-
 - POST /api/songs – Add a new song
-
 - PUT /api/songs/:id – Update song
-
 - DELETE /api/songs/:id – Delete song
 
 #### Playlists
 
 - GET /api/playlists – List all playlists
-
 - POST /api/playlists – Create a playlist
-
 - PUT /api/playlists/:id – Update playlist
-
 - DELETE /api/playlists/:id – Delete playlist
 

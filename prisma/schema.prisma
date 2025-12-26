@@ -14,39 +14,44 @@ model User {
   password  String
   role      String    @default("USER")
   createdAt DateTime  @default(now())
+  deletedAt DateTime?
   playlists Playlist[]
 }
 
 model Artist {
-  id     Int     @id @default(autoincrement())
-  name   String
-  albums Album[]
+  id        Int       @id @default(autoincrement())
+  name      String
+  albums    Album[]
+  deletedAt DateTime?
 }
 
 model Album {
-  id       Int     @id @default(autoincrement())
-  title    String
-  artistId Int
-  artist   Artist  @relation(fields: [artistId], references: [id])
-  songs    Song[]
+  id        Int       @id @default(autoincrement())
+  title     String
+  artistId  Int
+  artist    Artist   @relation(fields: [artistId], references: [id])
+  songs     Song[]
+  deletedAt DateTime?
 }
 
 model Song {
-  id       Int    @id @default(autoincrement())
-  title    String
-  duration Int
-  albumId  Int
-  album    Album  @relation(fields: [albumId], references: [id])
+  id        Int       @id @default(autoincrement())
+  title     String
+  duration  Int
+  albumId   Int
+  album     Album    @relation(fields: [albumId], references: [id])
   playlistSongs PlaylistSong[]
+  deletedAt DateTime?
 }
 
 model Playlist {
   id        Int       @id @default(autoincrement())
   name      String
-  createdBy Int
-  user      User      @relation(fields: [createdBy], references: [id])
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
   songs     PlaylistSong[]
   createdAt DateTime  @default(now())
+  deletedAt DateTime?
 }
 
 model PlaylistSong {
@@ -56,6 +61,7 @@ model PlaylistSong {
   playlist   Playlist @relation(fields: [playlistId], references: [id])
   song       Song     @relation(fields: [songId], references: [id])
   createdAt  DateTime @default(now())
+  deletedAt  DateTime?
 
-  @@unique([playlistId, songId]) // prevent duplicate songs in a playlist
+  @@unique([playlistId, songId])
 }

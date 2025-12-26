@@ -3,10 +3,11 @@ const router = express.Router();
 const { authenticate } = require("../middleware/auth.middleware");
 const playlistController = require("../controllers/playlist.controller");
 
-router.post("/", authenticate, playlistController.createPlaylist);
-router.post("/add-song", authenticate, playlistController.addSong);
 router.get("/", authenticate, playlistController.getPlaylists);
+router.post("/", authenticate, playlistController.createPlaylist);
+router.put("/:id", authenticate, playlistController.updatePlaylist);
 router.delete("/:playlistId", authenticate, playlistController.deletePlaylist);
-router.delete("/:playlistId/remove-song/:songId", authenticate, playlistController.removeSong);
+router.post("/:playlistId/songs/:songId", authenticate, playlistController.addSong);
+router.delete("/:playlistId/songs/:songId", authenticate, playlistController.removeSong);
 
 module.exports = router;
