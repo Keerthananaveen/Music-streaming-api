@@ -1,19 +1,46 @@
 # Music Streaming API Backend
 A fully functional music streaming API  built with **Node.js**, **Express**, **Prisma**, and **PostgreSQL**, following the **MVC architecture**. Includes **JWT authentication**, **role-based access**, and structured endpoints for **users, artists, albums, songs, and playlists**.
 
-## **Table of Contents**
+## 📂 Project Structure
 
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Environment Variables](#environment-variables)
-  - [Database Setup](#database-setup)
-  - [Seeding Admin User](#seeding-admin-user)
-- [Running the App](#running-the-app)
-- [API Endpoints](#api-endpoints)
-- [Testing in Postman](#testing-in-postman)
+music-streaming-api/
+│
+├── prisma/ 
+│ ├── schema.prisma 
+│
+├── src/ 
+│ ├── controllers/ 
+│ │ ├── auth.controller.js
+│ │ ├── artist.controller.js
+│ │ ├── album.controller.js
+│ │ ├── song.controller.js
+│ │ └── playlist.controller.js
+│ │
+│ ├── middlewares/
+│ │ ├── auth.middleware.js 
+│ │ └── role.middleware.js 
+│ │
+│ ├── routes/ 
+│ │ ├── auth.routes.js
+│ │ ├── artist.routes.js
+│ │ ├── album.routes.js
+│ │ ├── song.routes.js
+│ │ └── playlist.routes.js
+│ │
+│ ├── services/ 
+│ │ └── prisma.
+│ │
+│ ├── utils/ # Utility functions
+│ │ └── logger.js
+│ │
+│ ├── app.js
+│ └── server.js 
+│
+├── .env 
+├── .gitignore
+├── package.json
+├── package-lock.json
+└── README.md
 
 ## **Features**
 
